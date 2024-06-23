@@ -1,0 +1,49 @@
+.schedule-container {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    direction: rtl;
+  }
+  
+  .schedule-header {
+    display: table-header-group;
+    background-color: #f8f8f8;
+  }
+  
+  .schedule-hour, .schedule-day {
+    display: table-cell;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .schedule-body {
+    display: table-row-group;
+  }
+  
+  .schedule-row {
+    display: table-row;
+  }
+  
+  .schedule-hour {
+    width: 50px;
+  }
+  
+  .schedule-cell {
+    display: table-cell;
+    border: 1px solid #ddd;
+    min-height: 50px;
+    position: relative;
+  }
+  
+  .class-card {
+    background-color: #1e90ff;
+    color: white;
+    padding: 5px;
+    margin: 2px 0;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 12px;
+  }
+  

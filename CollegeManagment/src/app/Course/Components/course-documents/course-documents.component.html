@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <h2>מסמכי הקורס</h2>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>מזהה מסמך</th>
+          <th>שם מסמך</th>
+          <th>סוג מסמך</th>
+          <th>קישור מסמך</th>
+          <th>תאריך העלאה</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let document of filteredDocuments">
+          <td>{{ document.document_id }}</td>
+          <td>{{ document.document_name }}</td>
+          <td>{{ document.document_type }}</td>
+          <td><a [href]="document.document_url" target="_blank">צפה במסמך</a></td>
+          <!-- <td>{{ document.uploaded_at | date:'shortDate' }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+   <!-- <div class="container mt-4">
+    <h2>מסמכי הקורס</h2>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let document of filteredDocuments">
+        <div class="card mb-4">
+          <div class="card-body">
+            <img *ngIf="document.document_type === 'image' || document.document_type === 'webp'" [src]="document.document_url" class="card-img-top" alt="Document Image">
+            <iframe *ngIf="document.document_type === 'pdf'" [src]="document.document_url" class="card-img-top" style="height: 400px;" frameborder="0"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
