@@ -11,9 +11,9 @@ import { ClassFormComponent } from './Components/class-form/class-form.component
 const routes: Routes = [
   { path: '', component: CoursesComponent },
   { path: ':id', component: CourseDetailsComponent },
-  { path: 'documents/:id', component: CourseDocumentsComponent }, 
+  { path: 'documents/:id', component: CourseDocumentsComponent },
   { path: 'schedule/:id', component: ScheduleCourseComponent },
-  { path: 'course-form/', component: CourseFormComponent },
+  { path: 'course-form/:status', component: CourseFormComponent },
   { path: 'upload-documents-form/:id', component: UploadDocumentsFormComponent },
   { path: 'class-form', component: ClassFormComponent },
 ];

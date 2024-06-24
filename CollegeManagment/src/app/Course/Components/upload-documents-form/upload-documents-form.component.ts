@@ -5,8 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './upload-documents-form.component.html',
   styleUrls: ['./upload-documents-form.component.css']
 })
-export class UploadDocumentsFormComponent implements OnInit {
-  ngOnInit(): void {
-  }
+export class UploadDocumentsFormComponent {
 
 }

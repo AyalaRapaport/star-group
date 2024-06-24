@@ -1,3 +1,9 @@
+<div class="d-flex justify-content-between align-items-center mt-3">
+  <button class="btn btn-primary" (click)="previousWeek()"> קודם</button>
+  <h1 class="m-0">{{course?.course_name}}</h1>
+  <button class="btn btn-primary" (click)="nextWeek()">הבא</button>
+</div>
+
 <div class="schedule-container">
   <div class="schedule-header">
     <div class="schedule-hour"></div>
@@ -15,12 +21,9 @@
       <div class="schedule-cell" *ngFor="let day of daysOfWeek; let dayIndex = index">
         <div *ngFor="let cls of getClassesForHourAndDay(hour, dayIndex)">
           <div class="class-card">{{ cls.class_name }}</div>
+          <div class="class-card">{{ cls.class_description }}</div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="d-flex justify-content-between mt-3">
-  <button class="btn btn-primary" (click)="previousWeek()"> קודם</button>
-  <button class="btn btn-primary" (click)="nextWeek()">הבא</button>
 </div>

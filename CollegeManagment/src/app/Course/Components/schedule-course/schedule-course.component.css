@@ -1,8 +1,10 @@
 .schedule-container {
     display: table;
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
     direction: rtl;
+    margin-right: auto;
+    margin-left: auto;
   }
   
   .schedule-header {

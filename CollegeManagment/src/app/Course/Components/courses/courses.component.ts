@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../../course-service.service';
 import { Courses } from '../../models/courses';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-courses',
@@ -12,7 +13,7 @@ export class CoursesComponent implements OnInit {
 
   courses: Courses[] = []
 
-  constructor(private courseService: CourseService, private router: Router) { }
+  constructor(private courseService: CourseService, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.courses = [
@@ -32,8 +33,28 @@ export class CoursesComponent implements OnInit {
   }
 
   addCourse() {
-    this.router.navigateByUrl('courses/course-form/')
+    this.router.navigateByUrl('courses/course-form/' + 'add')
   }
+
+  editCourse(course: Courses) {
+    this.router.navigateByUrl('courses/course-form/' + 'edit', { state: { course: course } })
+  }
+
+  deleteCourse(id: string | undefined) {
+    const snackBarRef = this._snackBar.open('האם למחוק את הקורס', 'כן', { duration: 3000, panelClass: ['blue-snackbar'] });
+    snackBarRef.onAction().subscribe(() => {
+      this.courseService.deleteCourse(id).subscribe(
+        () => {
+          this._snackBar.open('הקורס נמחק בהצלחה', 'סגור', { verticalPosition: 'top', horizontalPosition: 'start', duration: 4000 });
+          this.router.navigateByUrl(`allrecipes`);
+        },
+        error => {
+          console.error('Error deleting course:', error);
+        }
+      );
+    });
+  }
+  
 
 
 }

@@ -11,7 +11,9 @@ import { UploadDocumentsFormComponent } from './Components/upload-documents-form
 import { ClassFormComponent } from './Components/class-form/class-form.component';
 import { CourseFormComponent } from './Components/course-form/course-form.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     MatIconModule,
     CourseRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   exports: [
     CourseDetailsComponent,

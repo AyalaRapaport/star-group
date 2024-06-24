@@ -6,6 +6,10 @@
     <div class="col" *ngFor="let course of courses">
       <div class="card h-100">
         <div class="card-body">
+          <div class="position-absolute top-0 start-1 mt-2 me-2">
+            <i (click)="editCourse(course)" class="bi bi-pencil me-2" [ngStyle]="{'cursor': 'pointer'}"></i>
+            <i (click)="deleteCourse(course.course_id)" class="bi bi-trash" [ngStyle]="{'cursor': 'pointer'}"></i>
+          </div>
           <app-course-details [course]="course"></app-course-details>
           <div class="d-flex justify-content-center mt-3">
             <button (click)="toSchedule(course)" class="btn btn-outline-primary me-2">
@@ -20,3 +24,4 @@
     </div>
   </div>
 </div>
+

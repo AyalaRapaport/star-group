@@ -9,15 +9,28 @@ import { CourseDocument } from './models/courseDocument';
   providedIn: 'root'
 })
 export class CourseService {
+
   private coursestUrl = `${environment.apiURL}/courses/`;
 
   constructor(private http: HttpClient) { }
 
-  getAllCourses(){
+  getAllCourses() {
     return this.http.get<Courses[]>(this.coursestUrl)
   }
-  
+
   getDocumentsByCourseId(id: string): Observable<CourseDocument[]> {
     return this.http.get<CourseDocument[]>(this.coursestUrl)
+  }
+
+  addCourse(course: Courses): Observable<Courses> {
+    return this.http.post<Courses>(this.coursestUrl, course)
+  }
+
+  addDocuments(documents: CourseDocument[]): Observable<CourseDocument[]> {
+    return this.http.post<CourseDocument[]>(this.coursestUrl, documents)
+  }
+
+  deleteCourse(id: string | undefined) {
+    return this.http.delete(this.coursestUrl + id)
   }
 }

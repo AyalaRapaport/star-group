@@ -1,25 +1,44 @@
-<div class="container mt-5">
+<div class="container mt-5 ">
     <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header bg-primary text-white">
-            <h4 class="mb-0">הוספת קורס חדש</h4>
-          </div>
-          <div class="card-body">
-            <form (ngSubmit)="onSubmit()">
-              <div class="mb-3">
-                <label for="courseName" class="form-label">שם הקורס</label>
-                <input type="text" class="form-control" id="courseName" [(ngModel)]="course.name" name="name" required>
-              </div>
-              <div class="mb-3">
-                <label for="courseDescription" class="form-label">תיאור הקורס</label>
-                <textarea class="form-control" id="courseDescription" rows="4" [(ngModel)]="course.description" name="description" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary w-100">הוסף קורס</button>
-            </form>
-          </div>
+        <div class="col-md-6">
+            <div class="card rtl">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">הוספת קורס חדש</h4>
+                </div>
+                <div class="card-body ">
+                    <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="courseName" class="form-label">שם הקורס</label>
+                            <input type="text" class="form-control" id="courseName" formControlName="name" required>
+                            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="text-danger">
+                                <div *ngIf="name?.errors?.['required']"> שדה חובה</div>
+                                <div *ngIf="name?.errors?.['pattern']">שם הקורס חייב להכיל לפחות 2 אותיות ואינו מכיל
+                                    מספרים</div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="courseDescription" class="form-label">תיאור הקורס</label>
+                            <textarea class="form-control" id="courseDescription" rows="4" formControlName="description"
+                                required></textarea>
+                            <div *ngIf="description?.invalid && (description?.dirty || description?.touched)"
+                                class="text-danger">
+                                <div *ngIf="description?.errors?.['required']">שדה חובה</div>
+                                <div *ngIf="description?.errors?.['minlength']">תיאור הקורס חייב להכיל לפחות 2 תווים
+                                </div>
+                            </div>
+                        </div>
+                        <button (click)="uploadDocuments()" class="btn btn-primary  mb-4 me-3" [disabled]="courseForm.invalid"><i
+                                class="bi bi-file-earmark-plus"></i> העלאת מסמכים
+                        </button>
+                        <button (click)="addClasses()" class="btn btn-primary  mb-4 me-3" [disabled]="courseForm.invalid"><i
+                                class="bi bi-calendar-plus"></i>
+                            הוספת שיעורים
+                        </button>
+                        <button type="submit" class="btn btn-primary w-100" [disabled]="courseForm.invalid"> הוסף קורס ללא מסמכים ושיעורים
+                             </button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  
+</div>
