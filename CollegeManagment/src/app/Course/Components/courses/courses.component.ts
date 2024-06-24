@@ -23,12 +23,12 @@ export class CoursesComponent implements OnInit {
     // this.courseService.getAllCourses().subscribe(x => this.courses = x)
   }
 
-  toDocuments(courseId: string | undefined) {
-    this.router.navigate(['courses/documents', courseId]);
+  toDocuments(course: Courses) {
+    this.router.navigate(['courses/documents', course.course_id], { state: { course: course } });
   }
 
-  toSchedule(courseId: string | undefined) {
-    this.router.navigateByUrl('courses/schedule/'+courseId)
+  toSchedule(course: Courses) {
+    this.router.navigateByUrl('courses/schedule/' + course.course_id, { state: { course: course } })
   }
 
 

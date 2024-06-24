@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CourseDocument } from '../../models/courseDocument';
 import { CourseService } from '../../course-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Courses } from '../../models/courses';
 
 @Component({
   selector: 'app-course-documents',
@@ -14,15 +15,26 @@ export class CourseDocumentsComponent implements OnInit {
     new CourseDocument('2', '1', 'Document 2', 'docx', 'http://example.com/doc2.docx', new Date('2023-02-01')),
     new CourseDocument('3', '2', 'Document 3', 'pptx', 'http://example.com/doc3.pptx', new Date('2023-03-01'))
   ];
+
+  course: Courses | null = null;
   filteredDocuments: CourseDocument[] = []
-  constructor(private courseService: CourseService, private route: ActivatedRoute) { }
+
+  constructor(private courseService: CourseService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const course_id = params['id']
       this.filteredDocuments = this.documents.filter(doc => doc.course_id === course_id);
     })
+    this.course = history.state.course;
     // this.courseService.getDocumentsByCourseId(this.course_id).subscribe(x => this.documents = x)
+  }
+
+  formatDate(date: Date): string {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
   }
 
 }

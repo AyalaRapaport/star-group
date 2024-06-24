@@ -8,12 +8,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CourseModule } from './Course/course.module';
-import { CourseFormComponent } from './Componemts/course-form/course-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseFormComponent,
   ],
   imports: [
     BrowserModule,

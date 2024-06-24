@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Classes } from '../../models/classes';
 import { ActivatedRoute } from '@angular/router';
+import { Courses } from '../../models/courses';
 
 @Component({
   selector: 'app-schedule-course',
@@ -24,13 +25,16 @@ export class ScheduleCourseComponent implements OnInit {
   currentWeekDates: Date[] = [];
 
   constructor(private route: ActivatedRoute) { }
+  course: Courses | null = null
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const courseId = params['id']; 
-      this.filteredClasses = this.classes.filter(cls => cls.course_id === courseId);
+      const course_id = params['id']
+      this.filteredClasses = this.classes.filter(cls => cls.course_id === course_id);
       // this.courseService.getClassesByCourseId(courseId).subscribe(x => this.filteredClasses = x)
     });
+    this.course = history.state.course;
+
     this.updateCurrentWeekDates();
   }
 

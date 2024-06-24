@@ -7,9 +7,10 @@ import { ScheduleCourseComponent } from './Components/schedule-course/schedule-c
 import { MatIconModule } from '@angular/material/icon';
 import { CourseDocument } from './models/courseDocument';
 import { CourseRoutingModule } from './course-routing.module ';
-import { CourseFormComponent } from './Componemts/course-form/course-form.component';
 import { UploadDocumentsFormComponent } from './Components/upload-documents-form/upload-documents-form.component';
 import { ClassFormComponent } from './Components/class-form/class-form.component';
+import { CourseFormComponent } from './Components/course-form/course-form.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { ClassFormComponent } from './Components/class-form/class-form.component
     ClassFormComponent,
   ],
   imports: [
+    BrowserModule,
     CommonModule,
     MatIconModule,
-    CourseRoutingModule
+    CourseRoutingModule,
   ],
   exports: [
     CourseDetailsComponent,
