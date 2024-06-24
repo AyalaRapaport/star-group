@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: ':id', component: CourseDetailsComponent },
   { path: 'documents/:id', component: CourseDocumentsComponent }, 
   { path: 'schedule/:id', component: ScheduleCourseComponent },
-  { path: 'course-form', component: CourseFormComponent },
-  { path: 'upload-documents-form', component: UploadDocumentsFormComponent },
+  { path: 'course-form/', component: CourseFormComponent },
+  { path: 'upload-documents-form/:id', component: UploadDocumentsFormComponent },
   { path: 'class-form', component: ClassFormComponent },
 ];
 

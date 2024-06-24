@@ -28,7 +28,11 @@ export class CoursesComponent implements OnInit {
   }
 
   toSchedule(course: Courses) {
-    this.router.navigateByUrl('courses/schedule/' + course.course_id, { state: { course: course } })
+    this.router.navigateByUrl('/courses/schedule/' + course.course_id, { state: { course: course } })
+  }
+
+  addCourse() {
+    this.router.navigateByUrl('courses/course-form/')
   }
 
 

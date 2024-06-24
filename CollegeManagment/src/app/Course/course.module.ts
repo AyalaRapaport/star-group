@@ -11,6 +11,7 @@ import { UploadDocumentsFormComponent } from './Components/upload-documents-form
 import { ClassFormComponent } from './Components/class-form/class-form.component';
 import { CourseFormComponent } from './Components/course-form/course-form.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,12 +28,16 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     MatIconModule,
     CourseRoutingModule,
+    FormsModule
   ],
   exports: [
     CourseDetailsComponent,
     CoursesComponent,
     CourseDocumentsComponent,
-    ScheduleCourseComponent
+    ScheduleCourseComponent,
+    UploadDocumentsFormComponent,
+    CourseFormComponent,
+    ClassFormComponent
   ],
 
 })

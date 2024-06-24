@@ -1,1 +1,25 @@
-<p>course-form works!</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">הוספת קורס חדש</h4>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="courseName" class="form-label">שם הקורס</label>
+                <input type="text" class="form-control" id="courseName" [(ngModel)]="course.name" name="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="courseDescription" class="form-label">תיאור הקורס</label>
+                <textarea class="form-control" id="courseDescription" rows="4" [(ngModel)]="course.description" name="description" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">הוסף קורס</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
